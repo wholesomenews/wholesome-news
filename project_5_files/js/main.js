@@ -11,7 +11,6 @@
 
 var window_w = $(window).innerWidth();
 
-
 $(window).on('load', function() {
 	/*------------------
 		Preloder
@@ -20,6 +19,8 @@ $(window).on('load', function() {
 	$("#preloder").delay(400).fadeOut("slow");
 
 });
+
+
 
 (function($) {
 
