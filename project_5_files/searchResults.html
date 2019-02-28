@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Newsify</title>
@@ -39,12 +39,15 @@
 				<div class="row">
 					<div class="col-lg-6 header-top-left">
 					</div>
-					<div class="col-lg-6 text-lg-right header-top-right">
-						<div class="user-panel">
-							<a href=""><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href=""><i class="fa fa-sign-in"></i> Login</a>
-						</div>
-					</div>
+                    <div class="col-lg-6 text-lg-right header-top-right">
+                        <div id="user-panel-logged-out" class="user-panel">
+                            <a href="form/register.html"><i class="fa fa-user-circle-o"></i> Register</a>
+                            <a href="form/login.html"><i class="fa fa-sign-in"></i> Login</a>
+                        </div>
+                        <div id="user-panel-logged-in" class="user-panel">
+                            <a onclick="window.location = 'preferences.html' + window.location.search;"><i class="fa fa-user-circle-o"></i>Preferences</a>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
