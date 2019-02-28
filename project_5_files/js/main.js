@@ -18,6 +18,8 @@ $(window).on('load', function() {
 	$(".loader").fadeOut(); 
     $("#preloder").delay(400).fadeOut("slow");
     userPanel();
+    prefs();
+    //loadSlider();
 });
 
 function userPanel() {
@@ -44,6 +46,48 @@ function userPanel() {
         $("#user-panel-logged-out").hide();
     }
 }
+
+function slider() {
+    var urlParams = new URLSearchParams(location.search);
+    urlParams.set('slider', $("#slider").value);
+}
+
+function loadSlider() {
+    var urlParams = new URLSearchParams(location.search);
+    if (urlParams.has('slider')) {
+        document.getElementById('slider').value = parseInt(urlParams.get('slider'));
+    }
+}
+
+function prefs() {
+    var urlParams = new URLSearchParams(location.search);
+    var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj', 'env', 'polit', 'tech', 'world', 'us'];
+    for (var i = 0; i < 10; i++) {
+        if (urlParams.has(boxes[i]) && (parseInt(urlParams.get(boxes[i])) != -1)) {
+            document.getElementById(boxes[i]).checked = true;
+        }
+    }
+}
+
+function preferences(name) {
+    var urlParams = new URLSearchParams(location.search);
+    if (urlParams.has(name)) {
+        urlParams.set(name, parseInt(urlParams.get(name)) * -1);
+    } else {
+        urlParams.set(name, 1);
+    }
+    location.href = "./preferences.html?" + urlParams.toString();
+}
+
+/*document.getElementById('abc').onclick = function () {
+    var urlParams = new URLSearchParams(location.search);
+    if (urlParams.has(name)) {
+        urlParams.set(name, parseInt(URLSearchParams.getItem(name)) * -1);
+    } else {
+        urlParams.set(name, 1);
+    }
+    location.href = "./index.html" + location.search
+}*/
 
 function logIn() {
     var userName = $("#usernameInput").value;
