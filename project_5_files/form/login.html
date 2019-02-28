@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -16,18 +16,18 @@
 
 		<div class="wrapper">
 			<div class="inner">
-				<form action="">
+				<form name="loginForm" action="../index.html">
 					<h3>Login</h3>
 					<div class="form-holder">
 						<span class="lnr lnr-user"></span>
-						<input type="text" class="form-control" placeholder="Username">
+						<input id="usernameInput" type="text" name="userName" class="form-control" placeholder="Username">
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-lock"></span>
-						<input type="password" class="form-control" placeholder="Password">
+						<input id="passwordInput" type="password" name="passWord" class="form-control" placeholder="Password">
 					</div>
-					<button class="login-button">
-						<span><a href="../indexLI.html">Login</a></span>
+					<button id="login-button" class="login-button">
+						<span><a href="../index.html"">Login</a></span>
 					</button>
 				</form>
 			</div>

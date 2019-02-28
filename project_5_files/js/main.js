@@ -16,11 +16,73 @@ $(window).on('load', function() {
 		Preloder
 	--------------------*/
 	$(".loader").fadeOut(); 
-	$("#preloder").delay(400).fadeOut("slow");
-
+    $("#preloder").delay(400).fadeOut("slow");
+    userPanel();
 });
 
+function userPanel() {
+    var newsifyLoginDataObj
+    var loginJSON
+    if (sessionStorage.getItem("newsifyLoginData") === null) {
+        newsifyLoginDataObj = { isLoggedIn: "false", username: "", password: "" };
+        loginJSON = JSON.stringify(newsifyLoginDataObj);
+        sessionStorage.setItem("newsifyLoginData", loginJSON);
+    }
+    loginJSON = sessionStorage.getItem("newsifyLoginData");
+    newsifyLoginDataObj = JSON.parse(loginJSON);
 
+    var urlParams = new URLSearchParams(location.search);
+    if (urlParams.has('userName') || urlParams.has('passWord')) {
+        newsifyLoginDataObj.isLoggedIn = "true";
+    };
+
+    if (newsifyLoginDataObj.isLoggedIn == "false") {
+        $("#user-panel-logged-in").hide();
+        $("#user-panel-logged-out").show();
+    } else {
+        $("#user-panel-logged-in").show();
+        $("#user-panel-logged-out").hide();
+    }
+}
+
+function logIn() {
+    var userName = $("#usernameInput").value;
+    var passWord = $("#passwordInput").value;
+    window.location.href = "../index.html";
+    var newsifyLoginDataObj
+    var loginJSON
+    if (sessionStorage.getItem("newsifyLoginData") === null) {
+        newsifyLoginDataObj = { isLoggedIn: "true", username: userName, password: passWord };
+        loginJSON = JSON.stringify(newsifyLoginDataObj);
+        sessionStorage.setItem("newsifyLoginData", loginJSON);
+        // make user register, right now does it automatically
+    }
+    loginJSON = sessionStorage.getItem("newsifyLoginData");
+    newsifyLoginDataObj = JSON.parse(loginJSON);
+
+    newsifyLoginDataObj.isLoggedIn = "true";
+    loginJSON = JSON.stringify(newsifyLoginDataObj);
+    sessionStorage.setItem("newsifyLoginData", loginJSON);
+    /*loginJSON = sessionStorage.getItem("newsifyLoginData");
+    newsifyLoginDataObj = JSON.parse(loginJSON);
+    if (newsifyLoginDataObj.username == userName) {
+        if (newsifyLoginDataObj.password == passWord) {
+            newsifyLoginDataObj.isLoggedIn = "true";
+            loginJSON = JSON.stringify(newsifyLoginDataObj);
+            sessionStorage.setItem("newsifyLoginData", loginJSON);
+        } else {
+            //your password was incorrect, right now doesn't matter
+            newsifyLoginDataObj = { isLoggedIn: "true", username: userName, password: passWord };
+            loginJSON = JSON.stringify(newsifyLoginDataObj);
+            sessionStorage.setItem("newsifyLoginData", loginJSON);
+        }
+    } else {
+        //your username was incorrect, right now doesn't matter
+        newsifyLoginDataObj = { isLoggedIn: "true", username: userName, password: passWord };
+        loginJSON = JSON.stringify(newsifyLoginDataObj);
+        sessionStorage.setItem("newsifyLoginData", loginJSON);
+    }*/
+}
 
 (function($) {
 
