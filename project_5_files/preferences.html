@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Newsify</title>
@@ -41,7 +41,7 @@
 					</div>
 					<div class="col-lg-6 text-lg-right header-top-right">
 						<div class="user-panel">
-							<a href="indexLI.html"><i class="fa fa-user-circle-o"></i>Home</a>
+							<a onclick="window.location = 'index.html' + window.location.search;"><i class="fa fa-user-circle-o"></i>Home</a>
 						</div>
 					</div>
 				</div>
@@ -55,14 +55,14 @@
 						<div class="nav-switch">
 							<i class="fa fa-bars"></i>
 						</div>
-						<ul class="main-menu">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="index.html">Environment</a></li>
-							<li><a href="index.html">Politics</a></li>
-							<li><a href="index.html">Technology</a></li>
-							<li><a href="index.html">World News</a></li>
-							<li><a href="index.html">U.S. News</a></li>
-						</ul>
+                        <ul class="main-menu">
+                            <li><a onclick="window.location = 'index.html' + window.location.search;">Home</a></li>
+                            <li><a onclick="window.location = 'index.html' + window.location.search;">Environment</a></li>
+                            <li><a onclick="window.location = 'index.html' + window.location.search;">Politics</a></li>
+                            <li><a onclick="window.location = 'index.html' + window.location.search;">Technology</a></li>
+                            <li><a onclick="window.location = 'index.html' + window.location.search;">World News</a></li>
+                            <li><a onclick="window.location = 'index.html' + window.location.search;">U.S. News</a></li>
+                        </ul>
 					</div>
 				</div>
 			</div>
@@ -90,60 +90,60 @@
 	<div class="outlets">
 		<h2>Preferred Outlets</h2>
 		<label class="containerCheck">ABC
-		  <input type="checkbox">
-		  <span class="checkmark"></span>
+		  <input id="abc" onchange="preferences('abc');" type="checkbox">
+		  <span name="abc" class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">CNN
-		  <input type="checkbox">
+		  <input id="cnn" onchange="preferences('cnn');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">Fox News
-		  <input type="checkbox">
+		  <input id="fox" onchange="preferences('fox');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">The New York Times
-		  <input type="checkbox">
+		  <input id="nyt" onchange="preferences('nyt');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">The Wall Street Journal
-		  <input type="checkbox">
+		  <input id="wsj" onchange="preferences('wsj');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 	</div>
 	<div class="topics">
 		<h2>Topics</h2>
 		<label class="containerCheck">Environment
-		  <input type="checkbox">
+		  <input id="env" onchange="preferences('env');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">Politics
-		  <input type="checkbox">
+		  <input id="polit" onchange="preferences('polit');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">Technology
-		  <input type="checkbox">
+		  <input id="tech" onchange="preferences('tech');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">World News
-		  <input type="checkbox">
+		  <input id="world" onchange="preferences('world');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">U.S. News
-		  <input type="checkbox">
+		  <input id="us" onchange="preferences('us');" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 	</div>
 
 	<div class="slidecontainer">
-	  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+	  <input type="range" min="1" max="100" value="50" class="slider" id="slider">
 	  <img src="img/political-spec.jpg">
 	</div>
 
