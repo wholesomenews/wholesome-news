@@ -19,7 +19,7 @@ $(window).on('load', function() {
     $("#preloder").delay(400).fadeOut("slow");
     userPanel();
     prefs();
-    //loadSlider();
+    loadSlider();
 });
 
 function userPanel() {
@@ -47,6 +47,10 @@ function userPanel() {
     }
 }
 
+function redir() {
+    window.location = 'searchResults.html' + window.location.search;
+}
+
 function slider() {
     var urlParams = new URLSearchParams(location.search);
     urlParams.set('slider', $("#slider").value);
@@ -54,9 +58,19 @@ function slider() {
 
 function loadSlider() {
     var urlParams = new URLSearchParams(location.search);
-    if (urlParams.has('slider')) {
-        document.getElementById('slider').value = parseInt(urlParams.get('slider'));
+    var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj'];
+    var values = [57, 63, 77, 16, 11];
+    var total = 0;
+    var count = 0;
+    var average = 50;
+    for (var i = 0; i < 5; i++) {
+        if (urlParams.has(boxes[i]) && (parseInt(urlParams.get(boxes[i])) != -1)) {
+            total += values[i];
+            count += 1;
+            average = total / count;
+        }
     }
+    document.getElementById('slider').value = average;
 }
 
 function prefs() {

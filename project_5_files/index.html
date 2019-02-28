@@ -88,7 +88,7 @@
 	<!-- Filter form section -->
 	<div class="filter-search">
 		<div class="container">
-			<form class="filter-form">
+			<form class="filter-form" action="javascript:redir()" onsubmit="window.location = 'searchResults.html' + window.location.search;">
 				<input type="text" placeholder="What's on your mind?">
 				<select>
 					<option value="City">Select a topic</option>
@@ -107,7 +107,7 @@
 					<option value="City">Fox News</option>
 					<option value="City">The New York Times</option>
 				</select>
-				<button class="site-btn fs-submit"><a href="searchResults.html">SEARCH</a></button>
+				<button onclick="window.location = 'searchResults.html' + window.location.search;" class="site-btn fs-submit"><a>SEARCH</a></button>
 			</form>
 		</div>
 	</div>
