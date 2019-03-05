@@ -55,13 +55,13 @@ function setResults(num, response) {
 
 	document.getElementById("author" + num).innerHTML = response.author.split(",")[0];
 
-	document.getElementById("date" + num).innerHTML = response.publishedAt;
+	document.getElementById("date" + num).innerHTML = response.publishedAt.split("T")[0];
 	
 	document.getElementById("link" + num).href = response.url;
 
 	document.getElementById("source" + num).innerHTML = response.source.name;
 
-	document.getElementById("pic" + num).style.backgroundImage = response.urlToImage;
+	document.getElementById("pic" + num).dataSetbg = response.urlToImage;
 
 	console.log(response.urlToImage);
 }
