@@ -11,6 +11,8 @@
 
 var window_w = $(window).innerWidth();
 
+
+// THIS IS JUST FOR TESTNG ONCE WE FIX OTHER PART RID OF THIS
 var url = 'https://newsapi.org/v2/everything?' +
 	          'q=luke-perry&' +
 	          'from=2019-03-04&' +
@@ -19,12 +21,22 @@ var url = 'https://newsapi.org/v2/everything?' +
 	          'sortBy=popularity&' +
 	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
 
-	var req = new Request(url);
+var req = new Request(url);
+console.log(url);
 
-	fetch(req)
-	    .then(function(response) {
-	        console.log(response.json());
-	    })
+// Replace ./data.json with your JSON feed
+fetch(req).then(response => {
+  return response.json();
+}).then(data => {
+  // Work with JSON data here
+  var currArt = data.articles[4];
+  console.log(currArt);
+  setResults(1, currArt);
+}).catch(err => {
+  // Do something for an error here
+});
+
+// DELETE UP UNTIL HERE ONCE WORKING
 
 $(window).on('load', function() {
 	/*------------------
@@ -36,6 +48,63 @@ $(window).on('load', function() {
     prefs();
     loadSlider();
 });
+
+function setResults(num, response) {
+	console.log("im here");
+	document.getElementById("title" + num).innerHTML = response.title;
+
+	document.getElementById("author" + num).innerHTML = response.author.split(",")[0];
+
+	document.getElementById("date" + num).innerHTML = response.publishedAt;
+	
+	document.getElementById("link" + num).href = response.url;
+
+	document.getElementById("source" + num).innerHTML = response.source.name;
+
+	document.getElementById("pic" + num).style.backgroundImage = response.urlToImage;
+
+	console.log(response.urlToImage);
+}
+
+
+
+function searchEngine() {
+	var searchField = document.getElementById("searchText").value;
+	searchField = searchField.split(' ').join('-');
+	console.log(searchField);
+	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal'];
+	var myNum;
+	var url;
+	var req;
+
+	for (myNum = 0; myNum < dispSources.length; myNum++) {
+		url = 'https://newsapi.org/v2/everything?' +
+	          'q='+ searchField + '&' +
+	          'from=2019-03-04&' +
+	          'sources=' + dispSources[myNum] + '&' +
+	          'language=en&' +
+	          'sortBy=popularity&' +
+	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
+
+		req = new Request(url);
+		console.log(url);
+
+		// Replace ./data.json with your JSON feed
+		fetch(req).then(response => {
+		  return response.json();
+		}).then(data => {
+		  // Work with JSON data here
+		  var currArt = data.articles[0];
+		  console.log("RES");
+		  console.log(currArt);
+		  setResults(myNum + 1, currArt);
+		}).catch(err => {
+		  console.log("ERROR");
+		});
+
+	};
+
+}
 
 function userPanel() {
     var newsifyLoginDataObj
@@ -117,29 +186,6 @@ function preferences(name) {
     }
     location.href = "./index.html" + location.search
 }*/
-function searchEngine() {
-	var searchField = document.getElementById("searchText").value;
-	searchField = searchField.split(' ').join('-');
-	console.log(searchField);
-
-	var url = 'https://newsapi.org/v2/everything?' +
-	          'q=' + searchField +'&' +
-	          'from=2019-03-04&' +
-	          'sources=cnn&' +
-	          'language=en&' +
-	          'sortBy=popularity&' +
-	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
-
-	var req = new Request(url);
-
-	fetch(req)
-	    .then(function(response) {
-	        console.log(response.json());
-	    })
-
-}
-
-
 
 function logIn() {
     var userName = $("#usernameInput").value;
