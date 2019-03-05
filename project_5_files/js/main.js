@@ -8,6 +8,26 @@
 
 'use strict';
 
+function setResults() {
+	document.getElementById("title1").innerHTML = "";
+	document.getElementById("title2").innerHTML = "";
+	document.getElementById("title3").innerHTML = "";
+	document.getElementById("author1").innerHTML = "";
+	document.getElementById("author2").innerHTML = "";
+	document.getElementById("author3").innerHTML = "";
+	document.getElementById("date1").innerHTML = "";
+	document.getElementById("date2").innerHTML = "";
+	document.getElementById("date3").innerHTML = "";
+	document.getElementById("pic1").innerHTML = "";
+	document.getElementById("pic2").innerHTML = "";
+	document.getElementById("pic3").innerHTML = "";
+	document.getElementById("source1").innerHTML = "";
+	document.getElementById("source2").innerHTML = "";
+	document.getElementById("source3").innerHTML = "";
+	document.getElementById("link1").innerHTML = "";
+	document.getElementById("link2").innerHTML = "";
+	document.getElementById("link3").innerHTML = "";
+}
 
 var window_w = $(window).innerWidth();
 
