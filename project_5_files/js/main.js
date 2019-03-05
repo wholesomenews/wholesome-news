@@ -11,6 +11,21 @@
 
 var window_w = $(window).innerWidth();
 
+var url = 'https://newsapi.org/v2/everything?' +
+	          'q=luke-perry&' +
+	          'from=2019-03-04&' +
+	          'sources=cnn&' +
+	          'language=en&' +
+	          'sortBy=popularity&' +
+	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
+
+	var req = new Request(url);
+
+	fetch(req)
+	    .then(function(response) {
+	        console.log(response.json());
+	    })
+
 $(window).on('load', function() {
 	/*------------------
 		Preloder
@@ -102,6 +117,29 @@ function preferences(name) {
     }
     location.href = "./index.html" + location.search
 }*/
+function searchEngine() {
+	var searchField = document.getElementById("searchText").value;
+	searchField = searchField.split(' ').join('-');
+	console.log(searchField);
+
+	var url = 'https://newsapi.org/v2/everything?' +
+	          'q=' + searchField +'&' +
+	          'from=2019-03-04&' +
+	          'sources=cnn&' +
+	          'language=en&' +
+	          'sortBy=popularity&' +
+	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
+
+	var req = new Request(url);
+
+	fetch(req)
+	    .then(function(response) {
+	        console.log(response.json());
+	    })
+
+}
+
+
 
 function logIn() {
     var userName = $("#usernameInput").value;
