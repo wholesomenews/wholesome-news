@@ -59,7 +59,7 @@ function setResults(num, response) {
 
 	document.getElementById("date" + num).innerHTML = '<i class="fa fa-clock-o"></i>' + response.publishedAt.split("T")[0];
 	
-	document.getElementById("title" + num).href = response.url;
+	document.getElementById("link" + num).href = response.url;
 
 	document.getElementById("source" + num).innerHTML = '<i class="fa fa-user"></i>' + response.source.name;
 
@@ -67,7 +67,6 @@ function setResults(num, response) {
 
     document.getElementById("description" + num).innerHTML = response.description;
 
-    console.log(response.urlToImage);
 }
 
 function setSearchText() {
