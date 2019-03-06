@@ -11,7 +11,7 @@
 
 var window_w = $(window).innerWidth();
 
-
+/*
 // THIS IS JUST FOR TESTNG ONCE WE FIX OTHER PART RID OF THIS
 var url = 'https://newsapi.org/v2/everything?' +
 	          'q=luke-perry&' +
@@ -37,7 +37,7 @@ fetch(req).then(response => {
 });
 
 // DELETE UP UNTIL HERE ONCE WORKING
-
+*/
 $(window).on('load', function() {
 	/*------------------
 		Preloder
@@ -46,6 +46,9 @@ $(window).on('load', function() {
     $("#preloder").delay(400).fadeOut("slow");
     userPanel();
     prefs();
+    var urlParams = new URLSearchParams(location.search);
+    var searchText = urlParams.get("searchText");
+    searchEngine(searchText);
     loadSlider();
 });
 
@@ -53,30 +56,41 @@ function setResults(num, response) {
 	console.log("im here");
 	document.getElementById("title" + num).innerHTML = response.title;
 
-	document.getElementById("author" + num).innerHTML = response.author;
+    if (response.author === null) { document.getElementById("author" + num).innerHTML = response.source.name } else {
+        document.getElementById("author" + num).innerHTML = response.author.split(",")[0];
+    }
 
-	document.getElementById("date" + num).innerHTML = response.publishedAt;
+	document.getElementById("date" + num).innerHTML = response.publishedAt.split("T")[0];
 	
 	document.getElementById("link" + num).href = response.url;
 
 	document.getElementById("source" + num).innerHTML = response.source.name;
 
-	document.getElementById("pic" + num).style.backgroundImage = response.urlToImage;
+    document.getElementById("pic" + num).style.backgroundImage = 'url(' + response.urlToImage + ')';
 
-	console.log(response.urlToImage);
+    console.log(response.urlToImage);
+
+    console.log(document.getElementById("pic" + num).style.backgroundImage);
 }
 
+function setSearchText() {
+    var newText = document.getElementById('searchText').value.split(' ').join('-');
+    var urlParams = new URLSearchParams(location.search);
+    urlParams.set('searchText', newText);
+    window.location = 'searchResults.html?' + urlParams.toString();
+    console.log(urlParams.toString());
+}
 
-
-function searchEngine() {
-	var searchField = document.getElementById("searchText").value;
-	searchField = searchField.split(' ').join('-');
+function searchEngine(searchText) {
+    //var searchField = document.getElementById("searchText").value;
+    var searchField = searchText;
+    //searchField = searchField.split(' ').join('-');
 	console.log(searchField);
 	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal'];
 	var myNum;
 	var url;
 	var req;
-
+    var myInt = 1;
 	for (myNum = 0; myNum < dispSources.length; myNum++) {
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ searchField + '&' +
@@ -97,10 +111,12 @@ function searchEngine() {
 		  var currArt = data.articles[0];
 		  console.log("RES");
 		  console.log(currArt);
-		  setResults(myNum + 1, currArt);
-		}).catch(err => {
-		  console.log("ERROR");
-		});
+          setResults(myInt, currArt);
+          myInt += 1;
+		})//.catch(err => {
+		  //console.log("ERROR");
+    //})
+    ;
 
 	};
 
