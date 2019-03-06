@@ -977,7 +977,19 @@ ol {
 .page-top-section {
 	height: 350px;
 	text-align: center;
-	padding-top: 210px;
+	padding-top: 210px;padding-top: 150px;
+
+}
+.page-top-search-section{
+	height: 120px;
+	text-align: center;
+	padding-top: 200px;
+}
+.page-top-results-section{
+	height: 140px;
+	text-align: center;
+	padding-top: 180px;
+	padding-bottom: 20px;
 }
 
 .page-top-section h2 {
@@ -1028,6 +1040,7 @@ ol {
 
 .page-section {
 	padding-bottom: 100px;
+	margin-top: -50px;
 }
 
 .site-pagination {

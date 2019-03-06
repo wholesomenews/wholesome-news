@@ -53,24 +53,21 @@ $(window).on('load', function() {
 });
 
 function setResults(num, response) {
-	console.log("im here");
+    console.log("im here");
+
 	document.getElementById("title" + num).innerHTML = response.title;
 
-    if (response.author === null) { document.getElementById("author" + num).innerHTML = response.source.name } else {
-        document.getElementById("author" + num).innerHTML = response.author.split(",")[0];
-    }
-
-	document.getElementById("date" + num).innerHTML = response.publishedAt.split("T")[0];
+	document.getElementById("date" + num).innerHTML = '<i class="fa fa-clock-o"></i>' + response.publishedAt.split("T")[0];
 	
-	document.getElementById("link" + num).href = response.url;
+	document.getElementById("title" + num).href = response.url;
 
-	document.getElementById("source" + num).innerHTML = response.source.name;
+	document.getElementById("source" + num).innerHTML = '<i class="fa fa-user"></i>' + response.source.name;
 
-    document.getElementById("pic" + num).style.backgroundImage = 'url(' + response.urlToImage + ')';
+    document.getElementById("pic" + num).src = response.urlToImage;
+
+    document.getElementById("description" + num).innerHTML = response.description;
 
     console.log(response.urlToImage);
-
-    console.log(document.getElementById("pic" + num).style.backgroundImage);
 }
 
 function setSearchText() {
