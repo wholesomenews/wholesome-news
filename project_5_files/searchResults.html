@@ -42,7 +42,7 @@
                             <a href="form/login.html"><i class="fa fa-sign-in"></i> Login</a>
                         </div>
                         <div id="user-panel-logged-in" class="user-panel">
-                            <a onclick="window.location = 'preferences.html' + window.location.search;"><i class="fa fa-user-circle-o"></i>Preferences</a>
+                            <a onclick="window.location = 'preferences.html' + window.location.search;" href="javascript:void(0)"><i class="fa fa-user-circle-o"></i>Preferences</a>
                         </div>
                     </div>
 				</div>
@@ -52,19 +52,17 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="site-navbar">
-            
-						<a href="index.html" class="site-logo"> <h1> NEWSIFY </h1> </a>
-
+						<a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)" class="site-logo"> <h1> NEWSIFY </h1> </a>
 						<div class="nav-switch">
 							<i class="fa fa-bars"></i>
 						</div>
 						<ul class="main-menu">
-							<li><a onclick="window.location = 'index.html' + window.location.search;">Home</a></li>
-							<li><a onclick="window.location = 'index.html' + window.location.search;">Environment</a></li>
-							<li><a onclick="window.location = 'index.html' + window.location.search;">Politics</a></li>
-							<li><a onclick="window.location = 'index.html' + window.location.search;">Technology</a></li>
-							<li><a onclick="window.location = 'index.html' + window.location.search;">World News</a></li>
-							<li><a onclick="window.location = 'index.html' + window.location.search;">U.S. News</a></li>
+							<li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">Home</a></li>
+							<li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">Environment</a></li>
+							<li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">Politics</a></li>
+							<li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">Technology</a></li>
+							<li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">World News</a></li>
+							<li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">U.S. News</a></li>
 						</ul>
 					</div>
 				</div>
@@ -74,7 +72,35 @@
 	<!-- Header section end -->
 
 	<!-- Page top section -->
-	<section class="page-top-section set-bg">
+		<section class="page-top-search-section">
+		<div class="filter-search">
+		<div class="container">
+			<form class="filter-form" action="javascript:redir()" onsubmit="window.location = 'searchResults.html' + window.location.search;">
+				<input id="searchText" type="text" placeholder="What's on your mind?">
+				<select>
+					<option value="City">Select a topic</option>
+					<option value="City">Environment</option>
+					<option value="City">Politics</option>
+					<option value="City">Technology</option>
+					<option value="City">World News</option>
+					<option value="City">U.S. News</option>
+				</select>
+				<select>
+					<option value="City">Select a source</option>
+					<option value="City">CNN</option>
+					<option value="City">Fox News</option>
+					<option value="City">The Wall Street Journal</option>
+					<option value="City">BBC</option>
+					<option value="City">Fox News</option>
+					<option value="City">The New York Times</option>
+				</select>
+				<button onclick="searchEngine()" onclick="window.location = 'searchResults.html' + window.location.search;" href="" class="site-btn fs-submit"><a>SEARCH</a></button>
+			</form>
+		</div>
+	</div>
+	</section>
+	
+	<section class="page-top-results-section">
 		<div class="container text-white">
 			<h2>SEARCH RESULTS</h2>
 		</div>
@@ -84,14 +110,15 @@
 	<!-- Breadcrumb -->
 	<div class="site-breadcrumb">
 		<div class="container">
-			<a href="index.html"><i class="fa fa-home"></i>Home</a>
-			<span><i class="fa fa-angle-right"></i>Featured Listings</span>
+			<a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)" <i class="fa fa-home">Home</a>
+			<span><i class="fa fa-angle-right"></i>Search Results</span>
 		</div>
 	</div>
 
 
 	<!-- page -->
 	<section class="page-section categories-page">
+	
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
@@ -120,8 +147,17 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-lg-4 col-md-6 blog-item">
+					<img src="img/feature/trump_nbcnews.jpg" alt="">
+					<h5><a href="https://www.nbcnews.com/politics/donald-trump/trump-vows-new-day-venezuela-n972891">Trump vows 'new day' for Venezuela: Monday in Miami</a></h5>
+					<div class="blog-meta">
+						<span><i class="fa fa-user"></i>NPR</span>
+						<span><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+					</div>
+					<p>President Donald Trump condemned socialism and urged a peaceful transition of power to end the Venezuelan crisis on Monday....</p>
+				</div>
+				<!--
 				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
 					<div class="feature-item">
 						<div class="feature-pic set-bg" id="pic2" data-setbg="img/feature/trump_nbcnews.jpg">
 						</div>
@@ -146,8 +182,18 @@
 						</div>
 					</div>
 				</div>
+				-->
+				<div class="col-lg-4 col-md-6 blog-item">
+					<img src="img/feature/trump_nbcnews.jpg" alt="">
+					<h5><a href="https://www.usatoday.com/story/news/politics/2019/02/13/donald-trump-attacks-turmoil-venezuela-wont-discuss-u-s-troops/2858420002/">Donald Trump denounces 'turmoil' in Venezuela</a></h5>
+					<div class="blog-meta">
+						<span><i class="fa fa-user"></i>ABC</span>
+						<span><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+					</div>
+					<p>President Donald Trump said Wednesday he would discuss the "turmoil" in Venezuela with Colombian counterpart Ivan Duque, but he would not talk publicly about.....</p>
+				</div>
+				<!--
 				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
 					<div class="feature-item">
 						<div class="feature-pic set-bg" id="pic2" data-setbg="img/feature/trump_usatoday.jpeg">
 						</div>
@@ -173,17 +219,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
-						
-	
-					
-			<div class="site-pagination">
-				<span>1</span>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#"><i class="fa fa-angle-right"></i></a>
-			</div>
-		</div>
+				-->
 	</section>
 	<!-- page end -->
 
