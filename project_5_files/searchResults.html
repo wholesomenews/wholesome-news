@@ -72,10 +72,10 @@
 	<!-- Header section end -->
 
 	<!-- Page top section -->
-		<section class="page-top-search-section">
+	<section class="page-top-search-section">
 		<div class="filter-search">
 		<div class="container">
-			<form class="filter-form" action="javascript:redir()" onsubmit="window.location = 'searchResults.html' + window.location.search;">
+            <form class="filter-form" action="javascript:setSearchText();" <!--  onsubmit="window.location = 'searchResults.html' + window.location.search;" -->
 				<input id="searchText" type="text" placeholder="What's on your mind?">
 				<select>
 					<option value="City">Select a topic</option>
@@ -94,7 +94,7 @@
 					<option value="City">Fox News</option>
 					<option value="City">The New York Times</option>
 				</select>
-				<button onclick="searchEngine()" onclick="window.location = 'searchResults.html' + window.location.search;" href="" class="site-btn fs-submit"><a>SEARCH</a></button>
+				<button href="" class="site-btn fs-submit"><a>SEARCH</a></button> <!-- onclick="window.location = 'searchResults.html' + window.location.search;" -->
 			</form>
 		</div>
 	</div>
@@ -120,107 +120,116 @@
 	<section class="page-section categories-page">
 	
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" id="pic1" data-setbg="img/feature/TrumpMaduro.jpg">
-						</div>
-						<div class="feature-text" >
-							<div class="text-center feature-title">
-								<h5  id="title1">Trump Warns Venezuela's Maduro Supporters: 'You Will Lose Everything'</h5>
-								<i class="fa fa-th-large"></i> <p id="source1">NPR</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<i class="fa fa-user"></i>
-										<p id='author1' style="float:right; padding-left:5px">Vanessa Romo</p>
-									</div>
-									<div class="rf-right">
-										<i class="fa fa-clock-o"></i>
-										<p id="date1" style="float:right; padding-left:5px">18 Feb 2019</p>
-									</div>	
-								</div>
-							</div>
-							<a id="link1" href="https://www.npr.org/2019/02/18/695797870/trump-warns-venezuelas-maduro-supporters-you-will-lose-everything" class="room-price">Read Article</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 blog-item">
-					<img src="img/feature/trump_nbcnews.jpg" alt="">
-					<h5><a href="https://www.nbcnews.com/politics/donald-trump/trump-vows-new-day-venezuela-n972891">Trump vows 'new day' for Venezuela: Monday in Miami</a></h5>
-					<div class="blog-meta">
-						<span><i class="fa fa-user"></i>NPR</span>
-						<span><i class="fa fa-clock-o"></i>18 Feb 2019</span>
-					</div>
-					<p>President Donald Trump condemned socialism and urged a peaceful transition of power to end the Venezuelan crisis on Monday....</p>
-				</div>
-				<!--
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<div class="feature-pic set-bg" id="pic2" data-setbg="img/feature/trump_nbcnews.jpg">
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5  id="title2"> Trump vows 'new day' for Venezuela: Monday in Miami</h5>
-								<i class="fa fa-th-large"></i><p id="source2">NPR</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<i class="fa fa-user"></i>
-										<p id='author2' style="float:right; padding-left:5px">Vanessa Romo</p>
-									</div>
-									<div class="rf-right">
-										<i class="fa fa-clock-o"></i>
-										<p id="date2" style="float:right; padding-left:5px">18 Feb 2019</p>
-									</div>		
-								</div>
-							</div>
-							<a id="link2" href="https://www.nbcnews.com/politics/donald-trump/trump-vows-new-day-venezuela-n972891" class="room-price">READ ARTICLE</a>
-						</div>
-					</div>
-				</div>
-				-->
-				<div class="col-lg-4 col-md-6 blog-item">
-					<img src="img/feature/trump_nbcnews.jpg" alt="">
-					<h5><a href="https://www.usatoday.com/story/news/politics/2019/02/13/donald-trump-attacks-turmoil-venezuela-wont-discuss-u-s-troops/2858420002/">Donald Trump denounces 'turmoil' in Venezuela</a></h5>
-					<div class="blog-meta">
-						<span><i class="fa fa-user"></i>ABC</span>
-						<span><i class="fa fa-clock-o"></i>18 Feb 2019</span>
-					</div>
-					<p>President Donald Trump said Wednesday he would discuss the "turmoil" in Venezuela with Colombian counterpart Ivan Duque, but he would not talk publicly about.....</p>
-				</div>
-				<!--
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<div class="feature-pic set-bg" id="pic2" data-setbg="img/feature/trump_usatoday.jpeg">
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title" >
-								<h5 id="title3">Donald Trump denounces 'turmoil' in Venezuela</h5>
-								<i class="fa fa-th-large"></i> <p id="source3">ABC</p>
-							</div>
-							<div class="room-info-warp">
-								
-								<div class="room-info">
-									<div class="rf-left">
-										<i class="fa fa-user"></i>
-										<p id='author3' style="float:right; padding-left:5px">Vanessa Romo</p>
-									</div>
-									<div class="rf-right">
-										<i class="fa fa-clock-o"></i>
-										<p id="date3" style="float:right; padding-left:5px">18 Feb 2019</p>
-									</div>	
-								</div>
-							</div>
-							<a id="link3" href="https://www.usatoday.com/story/news/politics/2019/02/13/donald-trump-attacks-turmoil-venezuela-wont-discuss-u-s-troops/2858420002/" class="room-price">READ ARTICLE</a>
-						</div>
-					</div>
-				</div>
-				-->
-	</section>
+            <div class="row">
+                <!--
+    <div class="col-lg-4 col-md-6">
+        <div class="feature-item">
+            <div class="feature-pic" id="pic1" style="background-image: url(img/feature/TrumpMaduro.jpg); background-size: cover">
+            </div>
+            <div class="feature-text" >
+                <div class="text-center feature-title">
+                    <h5  id="title1">Trump Warns Venezuela's Maduro Supporters: 'You Will Lose Everything'</h5>
+                    <i class="fa fa-th-large"></i> <p id="source1">NPR</p>
+                </div>
+                <div class="room-info-warp">
+                    <div class="room-info">
+                        <div class="rf-left">
+                            <i class="fa fa-user"></i>
+                            <p id='author1' style="float:right; padding-left:5px">Vanessa Romo</p>
+                        </div>
+                        <div class="rf-right">
+                            <i class="fa fa-clock-o"></i>
+                            <p id="date1" style="float:right; padding-left:5px">18 Feb 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <a id="link1" href="https://www.npr.org/2019/02/18/695797870/trump-warns-venezuelas-maduro-supporters-you-will-lose-everything" class="room-price">Read Article</a>
+            </div>
+        </div>
+    </div> -->
+                <div class="col-lg-4 col-md-6 blog-item">
+                    <img id="pic1" src="img/feature/TrumpMaduro.jpg" alt="">
+                    <h5 id="title1"><a href="https://www.npr.org/2019/02/18/695797870/trump-warns-venezuelas-maduro-supporters-you-will-lose-everything">Trump Warns Venezuela's Maduro Supporters: 'You Will Lose Everything'</a></h5>
+                    <div class="blog-meta">
+                        <span id="source1"><i class="fa fa-user"></i>NPR</span>
+                        <span id="date1"><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+                    </div>
+                    <p id="description1">At a campaign-style speech in Miami on Monday, President Trump said the Venezuelan military should not interfere with humanitarian aid coming into the country, or resort to violence,...</p>
+                </div>
+                <div class="col-lg-4 col-md-6 blog-item">
+                    <img id="pic2" src="img/feature/trump_nbcnews.jpg" alt="">
+                    <h5 id="title2"><a href="https://www.nbcnews.com/politics/donald-trump/trump-vows-new-day-venezuela-n972891">Trump vows 'new day' for Venezuela: Monday in Miami</a></h5>
+                    <div class="blog-meta">
+                        <span id="source2"><i class="fa fa-user"></i>NPR</span>
+                        <span id="date2"><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+                    </div>
+                    <p id="description2">President Donald Trump condemned socialism and urged a peaceful transition of power to end the Venezuelan crisis on Monday....</p>
+                </div>
+                <!--
+    <div class="col-lg-4 col-md-6">
+        <div class="feature-item">
+            <div class="feature-pic set-bg" id="pic2" style="background-image: url(img/feature/trump_nbcnews.jpg); background-size: cover">
+            </div>
+            <div class="feature-text">
+                <div class="text-center feature-title">
+                    <h5  id="title2"> Trump vows 'new day' for Venezuela: Monday in Miami</h5>
+                    <i class="fa fa-th-large"></i><p id="source2">NPR</p>
+                </div>
+                <div class="room-info-warp">
+                    <div class="room-info">
+                        <div class="rf-left">
+                            <i class="fa fa-user"></i>
+                            <p id='author2' style="float:right; padding-left:5px">Vanessa Romo</p>
+                        </div>
+                        <div class="rf-right">
+                            <i class="fa fa-clock-o"></i>
+                            <p id="date2" style="float:right; padding-left:5px">2019-2-18</p>
+                        </div>
+                    </div>
+                </div>
+                <a id="link2" href="https://www.nbcnews.com/politics/donald-trump/trump-vows-new-day-venezuela-n972891" class="room-price">READ ARTICLE</a>
+            </div>
+        </div>
+    </div>
+    -->
+                <div class="col-lg-4 col-md-6 blog-item">
+                    <img id="pic3" src="img/feature/trump_nbcnews.jpg" alt="">
+                    <h5 id="title3"><a href="https://www.usatoday.com/story/news/politics/2019/02/13/donald-trump-attacks-turmoil-venezuela-wont-discuss-u-s-troops/2858420002/">Donald Trump denounces 'turmoil' in Venezuela</a></h5>
+                    <div class="blog-meta">
+                        <span id="source3"><i class="fa fa-user"></i>ABC</span>
+                        <span id="date3"><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+                    </div>
+                    <p id="description3">President Donald Trump said Wednesday he would discuss the "turmoil" in Venezuela with Colombian counterpart Ivan Duque, but he would not talk publicly about.....</p>
+                </div>
+                <!--
+    <div class="col-lg-4 col-md-6">
+        <div class="feature-item">
+            <div class="feature-pic set-bg" id="pic3" style="background-image: url(img/feature/trump_usatoday.jpeg); background-size: cover">
+            </div>
+            <div class="feature-text">
+                <div class="text-center feature-title" >
+                    <h5 id="title3">Donald Trump denounces 'turmoil' in Venezuela</h5>
+                    <i class="fa fa-th-large"></i> <p id="source3">ABC</p>
+                </div>
+                <div class="room-info-warp">
+
+                    <div class="room-info">
+                        <div class="rf-left">
+                            <i class="fa fa-user"></i>
+                            <p id='author3' style="float:right; padding-left:5px">Charles Redding</p>
+                        </div>
+                        <div class="rf-right">
+                            <i class="fa fa-clock-o"></i>
+                            <p id="date3" style="float:right; padding-left:5px">2019-2-19</p>
+                        </div>
+                    </div>
+                </div>
+                <a id="link3" href="https://www.usatoday.com/story/news/politics/2019/02/13/donald-trump-attacks-turmoil-venezuela-wont-discuss-u-s-troops/2858420002/" class="room-price">READ ARTICLE</a>
+            </div>
+        </div>
+    </div>
+    -->
+</section>
 	<!-- page end -->
 
 
