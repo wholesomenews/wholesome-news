@@ -45,11 +45,17 @@ $(window).on('load', function() {
 	$(".loader").fadeOut(); 
     $("#preloder").delay(400).fadeOut("slow");
     userPanel();
-    prefs();
-    var urlParams = new URLSearchParams(location.search);
-    var searchText = urlParams.get("searchText");
-    searchEngine(searchText);
-    loadSlider();
+    //console.log(window.location);
+    var address = window.location.toString();
+    if (address.includes('preferences.html')) {
+        prefs();
+        loadSlider();
+    }
+    if (address.includes('searchResults.html')) {
+        var urlParams = new URLSearchParams(location.search);
+        var searchText = urlParams.get("searchText");
+        searchEngine(searchText);
+    }
 });
 
 function setResults(num, response) {
