@@ -85,7 +85,7 @@ ol {
 -----------------------*/
 
 .section-title {
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 .section-title h3 {
@@ -294,7 +294,8 @@ ol {
 .hero-section {
 	position: relative;
 	height: 670px;
-	margin-bottom: -54px;
+	margin-top: -150px;
+	margin-bottom: -220px;
 }
 
 .hero-text {
@@ -978,8 +979,18 @@ ol {
 	height: 350px;
 	text-align: center;
 	padding-top: 210px;padding-top: 150px;
-
 }
+
+.page-top-preferences-section {
+	height: 250px;
+	text-align: center;
+	padding-top: 220px;
+	margin-bottom: 40px;
+	font-weight: 400;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
 .page-top-search-section{
 	height: 120px;
 	text-align: center;
@@ -995,6 +1006,24 @@ ol {
 .page-top-section h2 {
 	font-weight: 400;
 	text-transform: uppercase;
+}
+
+.outlets h2 {
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+.slidecontainer h2 {
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+.topics h2 {
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 30px;
 }
 
 .page-top-section.single-blog {
@@ -1019,6 +1048,7 @@ ol {
 .site-breadcrumb {
 	padding: 50px 0;
 }
+
 
 .site-breadcrumb a {
 	color: #000;
@@ -2201,15 +2231,17 @@ ol {
 }
 
 .outlets{
-	margin-left: 70px;
+	margin-left: 100px;
 	float:left;
 	width: 50%;
 	margin-bottom: 100px;
+	margin-top: -40px;
 }
 
 .topics{
 	float: left;
 	margin-bottom: 100px;
+	margin-top: -40px;
 }
 
 .containerCheck {
