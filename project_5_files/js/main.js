@@ -11,33 +11,6 @@
 
 var window_w = $(window).innerWidth();
 
-/*
-// THIS IS JUST FOR TESTNG ONCE WE FIX OTHER PART RID OF THIS
-var url = 'https://newsapi.org/v2/everything?' +
-	          'q=luke-perry&' +
-	          'from=2019-03-04&' +
-	          'sources=cnn&' +
-	          'language=en&' +
-	          'sortBy=popularity&' +
-	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
-
-var req = new Request(url);
-console.log(url);
-
-// Replace ./data.json with your JSON feed
-fetch(req).then(response => {
-  return response.json();
-}).then(data => {
-  // Work with JSON data here
-  var currArt = data.articles[4];
-  console.log(currArt);
-  setResults(1, currArt);
-}).catch(err => {
-  // Do something for an error here
-});
-
-// DELETE UP UNTIL HERE ONCE WORKING
-*/
 $(window).on('load', function() {
 	/*------------------
 		Preloder
@@ -55,6 +28,12 @@ $(window).on('load', function() {
         var urlParams = new URLSearchParams(location.search);
         var searchText = urlParams.get("searchText");
         searchEngine(searchText);
+    }
+  
+    if (address.includes('headerResults.html')) {
+        var urlParams = new URLSearchParams(location.search);
+        var categoryChosen = urlParams.get("category");
+        categoryEngine(categoryChosen);
     }
 });
 
@@ -88,22 +67,23 @@ function searchEngine(searchText) {
     var searchField = searchText;
     //searchField = searchField.split(' ').join('-');
 	console.log(searchField);
-	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal'];
-	var myNum;
+	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time'];
 	var url;
 	var req;
     var myInt = 1;
-	for (myNum = 0; myNum < dispSources.length; myNum++) {
+    var myCount = 0;
+	while (myInt < 4 & myCount < dispSources.length) {
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ searchField + '&' +
 	          'from=2019-03-04&' +
-	          'sources=' + dispSources[myNum] + '&' +
+	          'sources=' + dispSources[myCount] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
 	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
 
 		req = new Request(url);
 		console.log(url);
+		myCount += 1;
 
 		// Replace ./data.json with your JSON feed
 		fetch(req).then(response => {
@@ -111,16 +91,66 @@ function searchEngine(searchText) {
 		}).then(data => {
 		  // Work with JSON data here
 		  var currArt = data.articles[0];
-		  console.log("RES");
 		  console.log(currArt);
           setResults(myInt, currArt);
-          myInt += 1;
+          if (data.totalResults != 0){
+          	myInt += 1;
+          }
 		})//.catch(err => {
 		  //console.log("ERROR");
     //})
     ;
 
 	};
+
+}
+
+function categoryEngine(categoryField) {
+	console.log("HI");
+	console.log(categoryField);
+	
+	var url;
+	var req;
+
+
+	url = 'https://newsapi.org/v2/top-headlines?' +
+          'q='+ categoryField + '&' +
+          'from=2019-03-01&' +
+          'language=en&' +
+          'sortBy=popularity&' +
+          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
+
+	req = new Request(url);
+	console.log(url);
+
+	// Replace ./data.json with your JSON feed
+	fetch(req).then(response => {
+	  return response.json();
+	}).then(data => {
+	  // Work with JSON data here
+	  console.log("HELLO");
+	  console.log(data);
+	  var currArt = data.articles[0];
+	  console.log(data.articles[0]);
+      setResults("1c", currArt);
+      var currArt = data.articles[1];
+      setResults("2c", currArt);
+      var currArt = data.articles[2];
+      setResults("3c", currArt);
+	})//.catch(err => {
+	  //console.log("ERROR");
+    //})
+    
+    if (categoryField == "u.s."){
+		categoryField = "U.S. News";
+	}
+	else if(categoryField == "world"){
+		categoryField = "World News";
+	}
+
+	document.getElementById("categoryName").innerHTML = categoryField;
+	document.getElementById("categoryTitle").innerHTML = categoryField;
+
 
 }
 
