@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Newsify</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="LERAMIZ Landing Page Template">
+	<meta name="keywords" content="LERAMIZ, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 header-top-left">
+					</div>
+                    <div class="col-lg-6 text-lg-right header-top-right">
+                        <div id="user-panel-logged-out" class="user-panel">
+                            <a href="form/register.html"><i class="fa fa-user-circle-o"></i> Register</a>
+                            <a href="form/login.html"><i class="fa fa-sign-in"></i> Login</a>
+                        </div>
+                        <div id="user-panel-logged-in" class="user-panel">
+                            <a onclick="window.location = 'preferences.html' + window.location.search;" href="javascript:void(0)"><i class="fa fa-user-circle-o"></i>Preferences</a>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="site-navbar">
+						<a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)" class="site-logo"> <h1> NEWSIFY </h1> </a>
+						<div class="nav-switch">
+							<i class="fa fa-bars"></i>
+						</div>
+						<ul class="main-menu">
+                            <li><a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)">Home</a></li>
+                            <li><a onclick="window.location = 'headerResults.html?category=environment';" href="javascript:void(0)">Environment</a></li>
+                            <li><a onclick="window.location = 'headerResults.html?category=politics';"  href="javascript:void(0)">Politics</a></li>
+                            <li><a onclick="window.location = 'headerResults.html?category=technology';"  href="javascript:void(0)">Technology</a></li>
+                            <li><a onclick="window.location = 'headerResults.html?category=world';"  href="javascript:void(0)">World News</a></li>
+                            <li><a onclick="window.location = 'headerResults.html?category=u.s.';" href="javascript:void(0)">U.S. News</a></li>
+                        </ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+	<!-- Page top section -->
+	<section class="page-top-search-section">
+		<div class="filter-search">
+		<div class="container">
+            <form class="filter-form" action="javascript:setSearchText();" <!--  onsubmit="window.location = 'searchResults.html' + window.location.search;" -->
+				<input id="searchText" type="text" placeholder="What's on your mind?">
+				<select>
+					<option value="City">Select a topic</option>
+					<option value="City">Environment</option>
+					<option value="City">Politics</option>
+					<option value="City">Technology</option>
+					<option value="City">World News</option>
+					<option value="City">U.S. News</option>
+				</select>
+				<select>
+					<option value="City">Select a source</option>
+					<option value="City">CNN</option>
+					<option value="City">Fox News</option>
+					<option value="City">The Wall Street Journal</option>
+					<option value="City">BBC</option>
+					<option value="City">Fox News</option>
+					<option value="City">The New York Times</option>
+				</select>
+				<button href="" class="site-btn fs-submit"><a>SEARCH</a></button> <!-- onclick="window.location = 'searchResults.html' + window.location.search;" -->
+			</form>
+		</div>
+	</div>
+	</section>
+	
+	<section class="page-top-results-section">
+		<div class="container text-white">
+			<h2 id="categoryTitle" style="text-transform: uppercase">SEARCH RESULTS</h2>
+		</div>
+	</section>
+	<!--  Page top end -->
+
+	<!-- Breadcrumb -->
+	<div class="site-breadcrumb">
+		<div class="container">
+			<a onclick="window.location = 'index.html' + window.location.search;"href="javascript:void(0)" <i class="fa fa-home">Home</a>
+			<span  id="categoryName" style="text-transform: capitalize"><i class="fa fa-angle-right"></i>Search Results</span>
+		</div>
+	</div>
+
+
+	<!-- page -->
+	<section class="page-section categories-page">
+	
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 blog-item">
+                    <img id="pic1c" src="img/feature/TrumpMaduro.jpg" alt="">
+                    <a id="link1c" href="https://www.npr.org/2019/02/18/695797870/trump-warns-venezuelas-maduro-supporters-you-will-lose-everything"><h5 id="title1c">Trump Warns Venezuela's Maduro Supporters: 'You Will Lose Everything'</h5></a>
+                    <div class="blog-meta">
+                        <span id="source1c"><i class="fa fa-user"></i>NPR</span>
+                        <span id="date1c"><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+                    </div>
+                    <p id="description1c">At a campaign-style speech in Miami on Monday, President Trump said the Venezuelan military should not interfere with humanitarian aid coming into the country, or resort to violence,...</p>
+                </div>
+                <div class="col-lg-4 col-md-6 blog-item">
+                    <img id="pic2c" src="img/feature/trump_nbcnews.jpg" alt="">
+                    <a id="link2c" href="https://www.nbcnews.com/politics/donald-trump/trump-vows-new-day-venezuela-n972891"><h5 id="title2c">Trump vows 'new day' for Venezuela: Monday in Miami</h5></a>
+                    <div class="blog-meta">
+                        <span id="source2c"><i class="fa fa-user"></i>NPR</span>
+                        <span id="date2c"><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+                    </div>
+                    <p id="description2c">President Donald Trump condemned socialism and urged a peaceful transition of power to end the Venezuelan crisis on Monday....</p>
+                </div>
+                <div class="col-lg-4 col-md-6 blog-item">
+                    <img id="pic3c" src="img/feature/trump_usatoday.jpeg" alt="">
+                    <a id="link3c" href="https://www.usatoday.com/story/news/politics/2019/02/13/donald-trump-attacks-turmoil-venezuela-wont-discuss-u-s-troops/2858420002/"><h5 id="title3c">Donald Trump denounces 'turmoil' in Venezuela</h5></a>
+                    <div class="blog-meta">
+                        <span id="source3c"><i class="fa fa-user"></i>ABC</span>
+                        <span id="date3c"><i class="fa fa-clock-o"></i>18 Feb 2019</span>
+                    </div>
+                    <p id="description3c">President Donald Trump said Wednesday he would discuss the "turmoil" in Venezuela with Colombian counterpart Ivan Duque, but he would not talk publicly about.....</p>
+                </div>
+
+</section>
+	<!-- page end -->
+
+
+				<div class="copyright">
+					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer section end -->
+                                        
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
