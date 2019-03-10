@@ -153,9 +153,20 @@ function redir() {
     window.location = 'searchResults.html' + window.location.search;
 }
 
-function slider() {
-    var urlParams = new URLSearchParams(location.search);
-    urlParams.set('slider', $("#slider").value);
+function changeSlider() {
+    var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj'];
+    var values = [57, 63, 77, 16, 11];
+    var total = 0;
+    var count = 0;
+    var average = 50;
+    for (var i = 0; i < 5; i++) {
+        if (document.getElementById(boxes[i]).checked == true) {
+            total += values[i];
+            count += 1;
+            average = total / count;
+        }
+    }
+    document.getElementById('slider').value = average;
 }
 
 function loadSlider() {
@@ -185,14 +196,15 @@ function prefs() {
     }
 }
 
-function preferences(name) {
+function setPrefs() {
     var urlParams = new URLSearchParams(location.search);
-    if (urlParams.has(name)) {
-        urlParams.set(name, parseInt(urlParams.get(name)) * -1);
-    } else {
-        urlParams.set(name, 1);
+    var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj', 'env', 'polit', 'tech', 'world', 'us'];
+    for (var i = 0; i < 10; i++) {
+        if (document.getElementById(boxes[i]).checked == true) {
+            urlParams.set(boxes[i], 1);
+        } else urlParams.set(boxes[i], -1);
     }
-    location.href = "./preferences.html?" + urlParams.toString();
+    window.location = 'index.html?' + urlParams.toString();
 }
 
 /*document.getElementById('abc').onclick = function () {

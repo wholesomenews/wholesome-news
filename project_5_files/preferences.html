@@ -56,12 +56,12 @@
 							<i class="fa fa-bars"></i>
 						</div>
                         <ul class="main-menu">
-                            <li><a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)">Home</a></li>
-                            <li><a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)">Environment</a></li>
-                            <li><a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)">Politics</a></li>
-                            <li><a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)">Technology</a></li>
-                            <li><a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)">World News</a></li>
-                            <li><a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)">U.S. News</a></li>
+                            <li><a onclick="setPrefs();" href="javascript:void(0)">Home</a></li>
+                            <li><a onclick="setPrefs();" href="javascript:void(0)">Environment</a></li>
+                            <li><a onclick="setPrefs();" href="javascript:void(0)">Politics</a></li>
+                            <li><a onclick="setPrefs();" href="javascript:void(0)">Technology</a></li>
+                            <li><a onclick="setPrefs();" href="javascript:void(0)">World News</a></li>
+                            <li><a onclick="setPrefs();" href="javascript:void(0)">U.S. News</a></li>
                         </ul>
 					</div>
 				</div>
@@ -90,54 +90,54 @@
 	<div class="outlets">
 		<h2>Preferred Outlets</h2>
 		<label class="containerCheck">ABC
-		  <input id="abc" onchange="preferences('abc');" type="checkbox">
+		  <input id="abc" onchange="changeSlider();" type="checkbox">
 		  <span name="abc" class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">CNN
-		  <input id="cnn" onchange="preferences('cnn');" type="checkbox">
+		  <input id="cnn" onchange="changeSlider();" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">Fox News
-		  <input id="fox" onchange="preferences('fox');" type="checkbox">
+		  <input id="fox" onchange="changeSlider();" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">The New York Times
-		  <input id="nyt" onchange="preferences('nyt');" type="checkbox">
+		  <input id="nyt" onchange="changeSlider();" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">The Wall Street Journal
-		  <input id="wsj" onchange="preferences('wsj');" type="checkbox">
+		  <input id="wsj" onchange="changeSlider();" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 	</div>
 	<div class="topics">
 		<h2>Topics</h2>
 		<label class="containerCheck">Environment
-		  <input id="env" onchange="preferences('env');" type="checkbox">
+		  <input id="env" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">Politics
-		  <input id="polit" onchange="preferences('polit');" type="checkbox">
+		  <input id="polit" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">Technology
-		  <input id="tech" onchange="preferences('tech');" type="checkbox">
+		  <input id="tech" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">World News
-		  <input id="world" onchange="preferences('world');" type="checkbox">
+		  <input id="world" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 
 		<label class="containerCheck">U.S. News
-		  <input id="us" onchange="preferences('us');" type="checkbox">
+		  <input id="us" type="checkbox">
 		  <span class="checkmark"></span>
 		</label>
 	</div>
