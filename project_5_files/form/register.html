@@ -20,19 +20,19 @@
 					<h3>New Account?</h3>
 					<div class="form-holder">
 						<span class="lnr lnr-user"></span>
-						<input type="text" name="userName" class="form-control" placeholder="Username">
+						<input type="text" name="name" class="form-control" placeholder="Name" required minlength="1">
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-envelope"></span>
-						<input type="text" name="mail" class="form-control" placeholder="Mail">
+						<input type="text" name="mail" class="form-control" placeholder="Email" required minlength="1" required pattern=".+[@].+">
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-lock"></span>
-						<input type="password" name="passWord" class="form-control" placeholder="Password">
+						<input id="password1" type="password" name="passWord" class="form-control" placeholder="Password" required minlength="1">
 					</div>
 					<div class="form-holder">
 						<span class="lnr lnr-lock"></span>
-						<input type="password" name="passWord" class="form-control" placeholder="Confirm Password">
+						<input id="password2" type="password" name="passWord" class="form-control" placeholder="Confirm Password" required minlength="1"  oninput="setPasswordConfirmValidity()">
 					</div>
 					<button>
 						<span><a href="../index.html">Register</a></span>
@@ -42,7 +42,11 @@
 			
 		</div>
 		
-		<script src="js/jquery-3.3.1.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/owl.carousel.min.js"></script>
+		<script src="../js/masonry.pkgd.min.js"></script>
+		<script src="../js/magnific-popup.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

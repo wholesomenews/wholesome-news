@@ -34,7 +34,7 @@ $(window).on('load', function() {
         var urlParams = new URLSearchParams(location.search);
         var categoryChosen = urlParams.get("category");
         categoryEngine(categoryChosen);
-    }
+	}
 });
 
 function setResults(num, response) {
@@ -153,6 +153,21 @@ function categoryEngine(categoryField) {
 
 
 }
+
+function setPasswordConfirmValidity() {
+	    console.log("IN");
+	    const password1 = document.getElementById('password1');
+	    const password2 = document.getElementById('password2');
+
+	    if (password1.value === password2.value) {
+	         password2.setCustomValidity('');
+	    } else {
+	     password2.setCustomValidity('Passwords must match');
+	    }
+	    console.log('password2 customError ', document.getElementById('password2').validity.customError);
+	    console.log('password2 validationMessage ', document.getElementById('password2').validationMessage);
+	}
+	
 
 function userPanel() {
     var newsifyLoginDataObj
