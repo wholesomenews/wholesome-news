@@ -37,6 +37,12 @@ $(window).on('load', function() {
 	}
 });
 
+function setCategory(category) {
+    var urlParams = new URLSearchParams(location.search);
+    urlParams.set('category', category);
+    window.location = 'headerResults.html?' + urlParams.toString();
+}
+
 function setResults(num, response) {
     console.log("im here");
 
@@ -260,7 +266,7 @@ function prefs() {
     }
 }
 
-function setPrefs() {
+function setPrefs(category) {
     var urlParams = new URLSearchParams(location.search);
     var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj', 'env', 'polit', 'tech', 'world', 'us'];
     for (var i = 0; i < 10; i++) {
@@ -268,18 +274,13 @@ function setPrefs() {
             urlParams.set(boxes[i], 1);
         } else urlParams.set(boxes[i], -1);
     }
-    window.location = 'index.html?' + urlParams.toString();
-}
-
-/*document.getElementById('abc').onclick = function () {
-    var urlParams = new URLSearchParams(location.search);
-    if (urlParams.has(name)) {
-        urlParams.set(name, parseInt(URLSearchParams.getItem(name)) * -1);
+    if (category != 'home') {
+        urlParams.set('category', category);
+        window.location = 'headerResults.html?' + urlParams.toString();
     } else {
-        urlParams.set(name, 1);
+        window.location = 'index.html?' + urlParams.toString();
     }
-    location.href = "./index.html" + location.search
-}*/
+}
 
 function logIn() {
     var userName = $("#usernameInput").value;
@@ -299,25 +300,6 @@ function logIn() {
     newsifyLoginDataObj.isLoggedIn = "true";
     loginJSON = JSON.stringify(newsifyLoginDataObj);
     sessionStorage.setItem("newsifyLoginData", loginJSON);
-    /*loginJSON = sessionStorage.getItem("newsifyLoginData");
-    newsifyLoginDataObj = JSON.parse(loginJSON);
-    if (newsifyLoginDataObj.username == userName) {
-        if (newsifyLoginDataObj.password == passWord) {
-            newsifyLoginDataObj.isLoggedIn = "true";
-            loginJSON = JSON.stringify(newsifyLoginDataObj);
-            sessionStorage.setItem("newsifyLoginData", loginJSON);
-        } else {
-            //your password was incorrect, right now doesn't matter
-            newsifyLoginDataObj = { isLoggedIn: "true", username: userName, password: passWord };
-            loginJSON = JSON.stringify(newsifyLoginDataObj);
-            sessionStorage.setItem("newsifyLoginData", loginJSON);
-        }
-    } else {
-        //your username was incorrect, right now doesn't matter
-        newsifyLoginDataObj = { isLoggedIn: "true", username: userName, password: passWord };
-        loginJSON = JSON.stringify(newsifyLoginDataObj);
-        sessionStorage.setItem("newsifyLoginData", loginJSON);
-    }*/
 }
 
 (function($) {
