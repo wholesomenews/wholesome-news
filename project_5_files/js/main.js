@@ -174,7 +174,7 @@ function categoryEngine(categoryField) {
 		categoryField = "World News";
 	}
 
-	document.getElementById("categoryName").innerHTML = categoryField;
+	document.getElementById("categoryName").innerHTML = '<i class="fa fa-angle-right"></i>' + categoryField;
 	document.getElementById("categoryTitle").innerHTML = categoryField;
 
 }
