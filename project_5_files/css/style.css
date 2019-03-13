@@ -333,7 +333,7 @@ ol {
 	height: 46px;
 	border: none;
 	border-radius: 2px;
-	width: calc(43% - 20px);
+	width: calc(80% - 20px);
 	margin-right: 20px;
 	padding: 5px 20px;
 	font-size: 14px;

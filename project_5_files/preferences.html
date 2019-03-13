@@ -38,7 +38,8 @@
 					</div>
 					<div class="col-lg-6 text-lg-right header-top-right">
 						<div class="user-panel">
-							<a onclick="setPrefs();" href ="javascript:void(0)"><i class="fa fa-user-circle-o"></i>Home</a>
+							<span style = "cursor:default" id = "welcomemessage" > Welcome User </span>
+							<a href="index.html"><i class="fa fa-sign-in"></i> Log Out</a>
 						</div>
 					</div>
 				</div>
@@ -78,7 +79,7 @@
 	<!-- Breadcrumb -->
 	<div class="site-breadcrumb">
 		<div class="container">
-			<a onclick="setPrefs(); "href="javascript:void(0)" <i class="fa fa-home">Home</a>
+			<a onclick="window.location = 'index.html' + window.location.search;" href="javascript:void(0)" <i class="fa fa-home">Home</a>
 			<span><i class="fa fa-angle-right"></i>Preferences</span>
 		</div>
 	</div>

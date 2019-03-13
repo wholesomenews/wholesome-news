@@ -36,7 +36,9 @@
                             <a href="form/login.html"><i class="fa fa-sign-in"></i> Login</a>
                         </div>
                         <div id="user-panel-logged-in" class="user-panel">
+							<span style = "cursor:default" id = "welcomemessage" > Welcome User </span>
                             <a onclick="window.location = 'preferences.html' + window.location.search;" href="javascript:void(0)"><i class="fa fa-user-circle-o"></i>Preferences</a>
+							<a href="index.html"><i class="fa fa-sign-in"></i> Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -72,23 +74,6 @@
 		<div class="container">
             <form class="filter-form" action="javascript:setSearchText();" <!--  onsubmit="window.location = 'searchResults.html' + window.location.search;" -->
 				<input id="searchText" type="text" placeholder="What's on your mind?">
-				<select>
-					<option value="City">Select a topic</option>
-					<option value="City">Environment</option>
-					<option value="City">Politics</option>
-					<option value="City">Technology</option>
-					<option value="City">World News</option>
-					<option value="City">U.S. News</option>
-				</select>
-				<select>
-					<option value="City">Select a source</option>
-					<option value="City">CNN</option>
-					<option value="City">Fox News</option>
-					<option value="City">The Wall Street Journal</option>
-					<option value="City">BBC</option>
-					<option value="City">Fox News</option>
-					<option value="City">The New York Times</option>
-				</select>
 				<button href="" class="site-btn fs-submit"><a>SEARCH</a></button> <!-- onclick="window.location = 'searchResults.html' + window.location.search;" -->
 			</form>
 		</div>

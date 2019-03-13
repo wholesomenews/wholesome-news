@@ -216,6 +216,17 @@ function userPanel() {
     } else {
         $("#user-panel-logged-in").show();
         $("#user-panel-logged-out").hide();
+		var urll = urlParams.toString();
+		var start;
+		var end;
+		if (urlParams.has('userName')){
+			start = urll.indexOf('userName=') + 9;
+			end = urll.indexOf('%40');
+		}else{
+			start = urll.indexOf('name=') + 5;
+			end = urll.indexOf('&mail=');
+		}
+		document.getElementById('welcomemessage').innerHTML = "Welcome " + urll.substring(start, end);
     }
 }
 
