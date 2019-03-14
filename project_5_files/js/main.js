@@ -18,7 +18,6 @@ $(window).on('load', function() {
 	$(".loader").fadeOut(); 
     $("#preloder").delay(400).fadeOut("slow");
     userPanel();
-    //console.log(window.location);
     var address = window.location.toString();
     if (address.includes('preferences.html')) {
         prefs();
@@ -33,6 +32,7 @@ $(window).on('load', function() {
     if (address.includes('headerResults.html')) {
         var urlParams = new URLSearchParams(location.search);
         var categoryChosen = urlParams.get("category");
+        console.log("BEFORE");
         categoryEngine(categoryChosen);
 	}
 });
@@ -44,7 +44,6 @@ function setCategory(category) {
 }
 
 function setResults(num, response) {
-    console.log("im here");
 
 	document.getElementById("title" + num).innerHTML = response.title;
 
@@ -65,19 +64,18 @@ function setSearchText() {
     var urlParams = new URLSearchParams(location.search);
     urlParams.set('searchText', newText);
     window.location = 'searchResults.html?' + urlParams.toString();
-    console.log(urlParams.toString());
 }
 
 function searchEngine(searchText) {
     //var searchField = document.getElementById("searchText").value;
     var searchField = searchText;
     //searchField = searchField.split(' ').join('-');
-	console.log(searchField);
 	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time'];
 	var url;
 	var req;
     var myInt = 1;
     var myCount = 0;
+    var response;
     
     var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj'];
     var sourceBox = ['abc-news', 'cnn', 'fox-news', 'new-york-magazine', 'the-wall-street-journal'];
@@ -89,6 +87,9 @@ function searchEngine(searchText) {
     	
     }
 
+    console.log("search");
+	console.log(dispSources[0]);
+
 	while (myInt < 4 & myCount < dispSources.length) {
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ searchField + '&' +
@@ -99,7 +100,6 @@ function searchEngine(searchText) {
 	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
 
 		req = new Request(url);
-		console.log(url);
 		myCount += 1;
 
 		// Replace ./data.json with your JSON feed
@@ -107,10 +107,9 @@ function searchEngine(searchText) {
 		  return response.json();
 		}).then(data => {
 		  // Work with JSON data here
-		  var currArt = data.articles[0];
-		  console.log(currArt);
-          setResults(myInt, currArt);
           if (data.totalResults != 0){
+          	var currArt = data.articles[0];
+          	setResults(myInt, currArt);
           	myInt += 1;
           }
 		})//.catch(err => {
@@ -151,21 +150,21 @@ function categoryEngine(categoryField) {
 	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
 
 		req = new Request(url);
-		console.log(url);
 		myCount += 1;
 		fetch(req).then(response => {
 		  return response.json();
 		}).then(data => {
 		  // Work with JSON data here
-		  var currArt = data.articles[0];
-	      setResults(myInt + "c", currArt);
-          if (data.totalResults != 0){
+          if (data.totalResults != 0 & myInt < 4){
+          	var currArt = data.articles[0];
+	        setResults(myInt + "c", currArt);
           	myInt += 1;
           }
 
 		})//.catch(err => {
 		  //console.log("ERROR");
     //})
+
 	};
 	if (categoryField == "u.s."){
 		categoryField = "U.S. News";
@@ -180,7 +179,6 @@ function categoryEngine(categoryField) {
 }
 
 function setPasswordConfirmValidity() {
-	    console.log("IN");
 	    const password1 = document.getElementById('password1');
 	    const password2 = document.getElementById('password2');
 
@@ -189,8 +187,6 @@ function setPasswordConfirmValidity() {
 	    } else {
 	     password2.setCustomValidity('Passwords must match');
 	    }
-	    console.log('password2 customError ', document.getElementById('password2').validity.customError);
-	    console.log('password2 validationMessage ', document.getElementById('password2').validationMessage);
 	}
 	
 
