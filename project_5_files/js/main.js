@@ -44,6 +44,8 @@ function setCategory(category) {
 }
 
 function setResults(num, response) {
+	console.log(num);
+	console.log(response.source.name);
 
 	document.getElementById("title" + num).innerHTML = response.title;
 
@@ -66,30 +68,31 @@ function setSearchText() {
     window.location = 'searchResults.html?' + urlParams.toString();
 }
 
-function searchEngine(searchText) {
-    //var searchField = document.getElementById("searchText").value;
-    var searchField = searchText;
-    //searchField = searchField.split(' ').join('-');
-	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time'];
+function searchEngine(searchField) {
+	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time', 'new-york-magazine'];
 	var url;
 	var req;
     var myInt = 1;
     var myCount = 0;
-    var response;
+    var index;
     
     var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj'];
     var sourceBox = ['abc-news', 'cnn', 'fox-news', 'new-york-magazine', 'the-wall-street-journal'];
     var urlParams = new URLSearchParams(location.search);
     for (var i = 0; i < 5; i++){ 
     	if (urlParams.has(boxes[i]) && (parseInt(urlParams.get(boxes[i])) != -1)){
-    		dispSources[0] = sourceBox[i];
+    		index = dispSources.indexOf(sourceBox[i]);
+    		if (index > -1) {
+    			dispSources.splice(index, 1);
+    		}
+    		dispSources.unshift(sourceBox[i]);
+
     	}
     	
     }
-
-    console.log("search");
-	console.log(dispSources[0]);
-
+	
+	var url;
+	var req;
 	while (myInt < 4 & myCount < dispSources.length) {
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ searchField + '&' +
@@ -97,43 +100,54 @@ function searchEngine(searchText) {
 	          'sources=' + dispSources[myCount] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
-	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
+	          'apiKey=15f1867cad1c43738297f9e378bb41a6';
 
+		console.log(dispSources[myCount]);
+		console.log(url);
 		req = new Request(url);
 		myCount += 1;
-
-		// Replace ./data.json with your JSON feed
+		console.log("SEROE");
+		console.log(dispSources[0]);
 		fetch(req).then(response => {
 		  return response.json();
 		}).then(data => {
 		  // Work with JSON data here
-          if (data.totalResults != 0){
+          if (data.totalResults != 0 & myInt < 4){
+          	console.log(dispSources);
+          	console.log(data.articles);
+
           	var currArt = data.articles[0];
-          	setResults(myInt, currArt);
+	        setResults(myInt, currArt);
           	myInt += 1;
           }
+
 		})//.catch(err => {
 		  //console.log("ERROR");
     //})
-    ;
 
 	};
 
 }
 
 function categoryEngine(categoryField) {
-	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time'];
+	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time', 'new-york-magazine'];
 	var url;
 	var req;
     var myInt = 1;
     var myCount = 0;
+    var index;
     
     var boxes = ['abc', 'cnn', 'fox', 'nyt', 'wsj'];
     var sourceBox = ['abc-news', 'cnn', 'fox-news', 'new-york-magazine', 'the-wall-street-journal'];
     var urlParams = new URLSearchParams(location.search);
     for (var i = 0; i < 5; i++){ 
     	if (urlParams.has(boxes[i]) && (parseInt(urlParams.get(boxes[i])) != -1)){
-    		dispSources[0] = sourceBox[i];
+    		index = dispSources.indexOf(sourceBox[i]);
+    		if (index > -1) {
+    			dispSources.splice(index, 1);
+    		}
+    		dispSources.unshift(sourceBox[i]);
+
     	}
     	
     }
@@ -147,15 +161,22 @@ function categoryEngine(categoryField) {
 	          'sources=' + dispSources[myCount] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
-	          'apiKey=6bc096378cd9475f8d1fdb0888665ca1';
+	          'apiKey=15f1867cad1c43738297f9e378bb41a6';
 
+		console.log(dispSources[myCount]);
+		console.log(url);
 		req = new Request(url);
 		myCount += 1;
+		console.log("SEROE");
+		console.log(dispSources[0]);
 		fetch(req).then(response => {
 		  return response.json();
 		}).then(data => {
 		  // Work with JSON data here
           if (data.totalResults != 0 & myInt < 4){
+          	console.log(dispSources);
+          	console.log(data.articles);
+
           	var currArt = data.articles[0];
 	        setResults(myInt + "c", currArt);
           	myInt += 1;
