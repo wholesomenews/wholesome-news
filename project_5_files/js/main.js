@@ -32,9 +32,12 @@ $(window).on('load', function() {
     if (address.includes('headerResults.html')) {
         var urlParams = new URLSearchParams(location.search);
         var categoryChosen = urlParams.get("category");
-        console.log("BEFORE");
         categoryEngine(categoryChosen);
 	}
+	if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
 });
 
 function setCategory(category) {
@@ -44,8 +47,6 @@ function setCategory(category) {
 }
 
 function setResults(num, response) {
-	console.log(num);
-	console.log(response.source.name);
 
 	document.getElementById("title" + num).innerHTML = response.title;
 
@@ -69,7 +70,7 @@ function setSearchText() {
 }
 
 function searchEngine(searchField) {
-	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time', 'new-york-magazine'];
+	var dispSources = ['abc-news', 'cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time', 'new-york-magazine'];
 	var url;
 	var req;
     var myInt = 1;
@@ -93,28 +94,27 @@ function searchEngine(searchField) {
 	
 	var url;
 	var req;
+	var myInd;
 	while (myInt < 4 & myCount < dispSources.length) {
+		myInd = myCount;
+		if (myInt > 0){
+			myInd = dispSources.length - myCount;
+		}
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ searchField + '&' +
 	          'from=2019-03-04&' +
 	          'sources=' + dispSources[myCount] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
-	          'apiKey=15f1867cad1c43738297f9e378bb41a6';
+	          'apiKey=d8f3160a3d1249988e9a7bde5dcc83e3';
 
-		console.log(dispSources[myCount]);
-		console.log(url);
 		req = new Request(url);
 		myCount += 1;
-		console.log("SEROE");
-		console.log(dispSources[0]);
 		fetch(req).then(response => {
 		  return response.json();
 		}).then(data => {
 		  // Work with JSON data here
           if (data.totalResults != 0 & myInt < 4){
-          	console.log(dispSources);
-          	console.log(data.articles);
 
           	var currArt = data.articles[0];
 	        setResults(myInt, currArt);
@@ -130,7 +130,7 @@ function searchEngine(searchField) {
 }
 
 function categoryEngine(categoryField) {
-	var dispSources = ['cnn', 'fox-news', 'the-wall-street-journal', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time', 'new-york-magazine'];
+	var dispSources = ['abc-news', 'cnn', 'fox-news', 'the-wall-street-journal', 'new-york-magazine', 'bbc-news', 'bloomberg', 'business-insider', 'cbs-news', 'nfl-news', 'newsweek', 'time'];
 	var url;
 	var req;
     var myInt = 1;
@@ -151,32 +151,38 @@ function categoryEngine(categoryField) {
     	}
     	
     }
-	
+	console.log(dispSources);
+	console.log("^^^ PREFERENCES");
 	var url;
 	var req;
+	var myInd;
 	while (myInt < 4 & myCount < dispSources.length) {
+		myInd = myCount;
+		if (myInt > 0){
+			myInd = dispSources.length - myCount;
+		}
+
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ categoryField + '&' +
 	          'from=2019-03-04&' +
 	          'sources=' + dispSources[myCount] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
-	          'apiKey=15f1867cad1c43738297f9e378bb41a6';
+	          'apiKey=d8f3160a3d1249988e9a7bde5dcc83e3';
 
-		console.log(dispSources[myCount]);
-		console.log(url);
+	    console.log(dispSources[myCount]);
+	    console.log("actual source pulling^^^");
+
 		req = new Request(url);
 		myCount += 1;
-		console.log("SEROE");
-		console.log(dispSources[0]);
 		fetch(req).then(response => {
 		  return response.json();
 		}).then(data => {
 		  // Work with JSON data here
           if (data.totalResults != 0 & myInt < 4){
-          	console.log(dispSources);
-          	console.log(data.articles);
-
+          	console.log(myInt);
+          	console.log(myCount);
+          	console.log("MY INT + MYCOUNT");
           	var currArt = data.articles[0];
 	        setResults(myInt + "c", currArt);
           	myInt += 1;
