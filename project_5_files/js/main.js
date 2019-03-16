@@ -96,17 +96,17 @@ function searchEngine(searchField) {
 	var req;
 	var myInd;
 	while (myInt < 4 & myCount < dispSources.length) {
-		myInd = myCount;
-		if (myInt > 0){
+		myInd = 0;
+		if (myCount > 0){
 			myInd = dispSources.length - myCount;
 		}
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ searchField + '&' +
 	          'from=2019-03-04&' +
-	          'sources=' + dispSources[myCount] + '&' +
+	          'sources=' + dispSources[myInd] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
-	          'apiKey=d8f3160a3d1249988e9a7bde5dcc83e3';
+	          'apiKey=15f1867cad1c43738297f9e378bb41a6';
 
 		req = new Request(url);
 		myCount += 1;
@@ -157,18 +157,18 @@ function categoryEngine(categoryField) {
 	var req;
 	var myInd;
 	while (myInt < 4 & myCount < dispSources.length) {
-		myInd = myCount;
-		if (myInt > 0){
+		myInd = 0;
+		if (myCount > 0){
 			myInd = dispSources.length - myCount;
 		}
 
 		url = 'https://newsapi.org/v2/everything?' +
 	          'q='+ categoryField + '&' +
 	          'from=2019-03-04&' +
-	          'sources=' + dispSources[myCount] + '&' +
+	          'sources=' + dispSources[myInd] + '&' +
 	          'language=en&' +
 	          'sortBy=popularity&' +
-	          'apiKey=d8f3160a3d1249988e9a7bde5dcc83e3';
+	          'apiKey=15f1867cad1c43738297f9e378bb41a6';
 
 	    console.log(dispSources[myCount]);
 	    console.log("actual source pulling^^^");
